@@ -22,20 +22,18 @@ board.on("ready", () => {
     //console.log("  inclination  : ", inclination);
     //console.log("  orientation  : ", orientation);
     //console.log("--------------------------------------");
-    var cm = "nrm";
-    if ( x > 0.9) cm= "r";
-    else if ( x < -0.9) cm= "l";
-    else if ( y > 0.9) cm= "d";
-    else if ( y < -0.9) cm= "u";
-    else cm = "";
+    var cm = 'nrm';
+    if ( x > 0.7) cm= 'r';
+    else if ( x < -0.6) cm= 'l';
+    else if ( y > 0.7) cm= 'u';
+    else if ( y < -0.4) cm= 'd';
+    else cm = '';
     msg += cm;
-    //console.log(msg.length);
-    //console.log(cm);
-    console.log(msg);
+    //console.log(msg);
     if (msg.length > 15) {
         const ls = spawn('python', ['mouse_ctrl.py', msg]);
         ls.on('close', (code) => {
-            //console.log(`child process exited with code ${code}`);
+            ///console.log(`child process exited with code ${code}`);
         });
         
         msg = "";
