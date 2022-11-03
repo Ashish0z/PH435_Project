@@ -27,6 +27,7 @@ board.on("ready", () => {
     else if ( x < -0.6) cm= 'l';
     else if ( y > 0.7) cm= 'u';
     else if ( y < -0.4) cm= 'd';
+    else if ( z > 1) cm= 'c';
     else cm = '';
     msg += cm;
     //console.log(msg);

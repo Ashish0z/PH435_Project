@@ -8,10 +8,15 @@ import sys
 import pyautogui
 
 cmd = sys.argv[1]
-m_u = cmd.count(x for x in cmd if x == 'u')
-m_d = cmd.count(x for x in cmd if x == 'd')
-m_l = cmd.count(x for x in cmd if x == 'l')
-m_r = cmd.count(x for x in cmd if x == 'r')
-
-pyautogui.moveRel((m_r - m_l) * 10, (m_u - m_d) * 10)
-print(m_d - m_u, m_r - m_l)
+lst = cmd.split('c')
+for i in range(len(lst)):
+    m_d = lst[i].count('d')
+    m_u = lst[i].count('u')
+    m_l = lst[i].count('l')
+    m_r = lst[i].count('r')
+    if (i < len(lst) - 1):
+        pyautogui.moveRel(m_r - m_l, m_u - m_d)
+        pyautogui.click()
+    else:
+        pyautogui.moveRel((m_r - m_l), (m_u - m_d))
+    print(m_d - m_u, m_r - m_l)
